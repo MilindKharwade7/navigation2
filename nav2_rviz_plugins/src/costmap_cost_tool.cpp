@@ -136,7 +136,7 @@ void CostmapCostTool::handleLocalCostResponse(
 void CostmapCostTool::handleGlobalCostResponse(
   rclcpp::Client<nav2_msgs::srv::GetCosts>::SharedFuture future) // nosemgrep
 {
-  rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node();
+  rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node(); // nosemgrep
   auto response = future.get();
   RCLCPP_INFO(node->get_logger(), "Global costmap cost: %.1f", response->costs[0]);
 }
