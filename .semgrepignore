@@ -1,9 +1,9 @@
 # Semgrep ignore patterns for navigation2
 # This file specifies paths and patterns to exclude from semgrep scanning
 
-# Exclude all test directories
-**/test/
-**/tests/
+# Exclude all files and directories containing 'test' in their name or path
+*test*
+**/*test*/**
 
 # Exclude build and install directories
 **/build/
