@@ -1,36 +1,102 @@
 rules:
-  - id: use-nav2-service-client
-    pattern-regex: "rclcpp::Client\\s*\\<.*\\>"
+  - id: use-nav2-node
+    pattern-regex: "rclcpp::Node(?!Options)\\b"
+    message: "Use nav2::Node instead of rclcpp::Node"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-client
+    pattern-regex: "rclcpp::Client\\s*<"
     message: "Use nav2::ServiceClient<T> instead of rclcpp::Client<T>"
     severity: WARNING
     languages: [cpp]
 
-  - id: use-nav2-service-server
-    pattern-regex: "rclcpp::Service\\s*\\<.*\\>"
+  - id: detect-rclcpp-service
+    pattern-regex: "rclcpp::Service\\s*<"
     message: "Use nav2::ServiceServer<T> instead of rclcpp::Service<T>"
     severity: WARNING
     languages: [cpp]
 
-  - id: use-nav2-subscription
-    pattern-regex: "rclcpp::Subscription\\s*\\<.*\\>"
-    message: "Use nav2::Subscription<T> instead of rclcpp::Subscription<T>"
-    severity: WARNING
-    languages: [cpp]
-
-  - id: use-nav2-publisher
-    pattern-regex: "rclcpp::Publisher\\s*\\<.*\\>"
+  - id: detect-rclcpp-publisher
+    pattern-regex: "rclcpp::Publisher\\s*<"
     message: "Use nav2::Publisher<T> instead of rclcpp::Publisher<T>"
     severity: WARNING
     languages: [cpp]
 
-  - id: use-nav2-action-client
-    pattern-regex: "rclcpp_action::Client\\s*\\<.*\\>"
+  - id: detect-rclcpp-subscription
+    pattern-regex: "rclcpp::Subscription\\s*<"
+    message: "Use nav2::Subscription<T> instead of rclcpp::Subscription<T>"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-action-client
+    pattern-regex: "rclcpp_action::Client\\s*<"
     message: "Use nav2::ActionClient<T> instead of rclcpp_action::Client<T>"
     severity: WARNING
     languages: [cpp]
 
-  - id: use-nav2-action-server
-    pattern-regex: "rclcpp_action::Server\\s*\\<.*\\>"
-    message: "Use nav2::ActionServer<T> instead of rclcpp_action::Server<T>"
+  - id: detect-rclcpp-action-server
+    pattern-regex: "rclcpp_action::Server\\s*<"
+    message: "Use nav2::SimpleActionServer<T> instead of rclcpp_action::Server<T>"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-create-client
+    pattern-regex: "rclcpp::create_client\\s*<"
+    message: "Use nav2 lifecycle node create_client instead of rclcpp::create_client"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-create-service
+    pattern-regex: "rclcpp::create_service\\s*<"
+    message: "Use nav2 lifecycle node create_service instead of rclcpp::create_service"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-create-publisher
+    pattern-regex: "rclcpp::create_publisher\\s*<"
+    message: "Use nav2 lifecycle node create_publisher instead of rclcpp::create_publisher"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-create-subscription
+    pattern-regex: "rclcpp::create_subscription\\s*<"
+    message: "Use nav2 lifecycle node create_subscription instead of rclcpp::create_subscription"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-action-create-client
+    pattern-regex: "rclcpp_action::create_client\\s*<"
+    message: "Use nav2 action client factories instead of rclcpp_action::create_client"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-action-create-server
+    pattern-regex: "rclcpp_action::create_server\\s*<"
+    message: "Use nav2 action server factories instead of rclcpp_action::create_server"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-node-create-publisher
+    pattern-regex: "rclcpp::Node::create_publisher\\s*<"
+    message: "Use nav2 publisher factories instead of rclcpp::Node::create_publisher"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-node-create-subscription
+    pattern-regex: "rclcpp::Node::create_subscription\\s*<"
+    message: "Use nav2 subscription factories instead of rclcpp::Node::create_subscription"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-node-create-client
+    pattern-regex: "rclcpp::Node::create_client\\s*<"
+    message: "Use nav2 lifecycle node create_client instead of rclcpp::Node::create_client"
+    severity: WARNING
+    languages: [cpp]
+
+  - id: detect-rclcpp-node-create-service
+    pattern-regex: "rclcpp::Node::create_service\\s*<"
+    message: "Use nav2 lifecycle node create_service instead of rclcpp::Node::create_service"
     severity: WARNING
     languages: [cpp]
